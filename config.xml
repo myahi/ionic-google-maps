@@ -90,7 +90,10 @@
     <plugin name="cordova-plugin-nativegeocoder" spec="^3.1.1" />
     <plugin name="cordova-plugin-x-toast" spec="^2.6.2" />
     <plugin name="cordova-plugin-nativestorage" spec="^2.3.1" />
+<<<<<<< HEAD
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
+=======
+>>>>>>> fist commit
 </widget>

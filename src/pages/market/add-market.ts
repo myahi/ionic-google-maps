@@ -7,6 +7,7 @@ import { LatLng } from '@ionic-native/google-maps';
 import { Toast } from '@ionic-native/toast';
 import { DataBaseProvider } from '../../providers/database/database';
 
+
 @Component({
   selector: 'page-sqlite',
   templateUrl: 'add-market.html'
@@ -37,10 +38,12 @@ export class AddMarketPage {
       })
   }
 /**  private reverseGeocode(){
+
     let address="";
     this.nativeGeocoder.reverseGeocode(this.position.lat,this.position.lng)
     .then((result: NativeGeocoderReverseResult) => address=JSON.stringify(result))
     .catch((error: any) => console.log(error));
     return address;
 }*/
+
 }

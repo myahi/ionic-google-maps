@@ -23,6 +23,7 @@ import { Toast } from '@ionic-native/toast';
 import { DataBaseProvider } from '../providers/database/database';
 import { GeolocationProvider } from '../providers/geolocation/geolocation';
 
+
 @NgModule({
   declarations: [
     MyApp,

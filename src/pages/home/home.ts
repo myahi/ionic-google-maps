@@ -8,6 +8,7 @@ import { DataBaseProvider } from '../../providers/database/database';
 import { GeolocationProvider } from '../../providers/geolocation/geolocation';
 import { MarketModel } from '../market/MarketModel';
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -22,7 +23,6 @@ export class HomePage {
   }
   ionViewWillEnter() {
   }
-
   loadMap() {
     // create a new map by passing HTMLElement
     let element: HTMLElement = document.getElementById('map');
@@ -55,4 +55,5 @@ export class HomePage {
 
   
   
+
 }
