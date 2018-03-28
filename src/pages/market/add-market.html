@@ -5,28 +5,28 @@
         </ion-header>
         
         <ion-content padding>
-          <form (ngSubmit)="saveMarket()">
+          <form (ngSubmit)="addMarket()">
             <ion-item>
               <ion-label stacked>Name</ion-label>
-              <ion-input type="text" [(ngModel)]="marketName" name="marketName"></ion-input>
+              <ion-input type="text" [(ngModel)]="market.marketName" name="marketName"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label stacked>Category</ion-label>
-              <ion-select [(ngModel)]="data.type" name="categorieMovie" required="">
-                <ion-option value="supermarket" selected="1">Supermarket</ion-option>
+              <ion-select [(ngModel)]="market.marketCategory" name="marketCategory" required="">
+                <ion-option value="supermarket" selected='true'>Supermarket</ion-option>
                 <ion-option value="shop">Shop</ion-option>
               </ion-select>
             </ion-item>
             <ion-item>
               <ion-label stacked>Address</ion-label>
-              <ion-input type="text" [(ngModel)]="marketAddress" name="marketAddress"></ion-input>
+              <ion-input type="text" [(ngModel)]="market.marketAddress" name="marketAddress"></ion-input>
               <button type="button" ion-button item-right (tap)="retriveAddress()"> 
                   <ion-icon name="md-refresh"></ion-icon>
               </button>
             </ion-item>
             <ion-item>
                 <ion-label stacked>Phone</ion-label>
-                <ion-input type="text" name="phone" placeholder="Phone" [brmasker]="{type: 'num',mask:'(0000) 00-00-00',len:15}"></ion-input>
+                <ion-input [(ngModel)]="market.marketPhone" type="text" name="phone" [brmasker]="{type: 'num',mask:'(0000) 00-00-00',len:15}"></ion-input>
             </ion-item>
           <button ion-button type="submit" block>Save Market</button>
          </form>

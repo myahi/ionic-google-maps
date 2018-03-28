@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "5.2.9",
     "@ionic-native/core": "4.5.3",
     "@ionic-native/dialogs": "^4.6.0",
+    "@ionic-native/geolocation": "^4.6.0",
     "@ionic-native/google-maps": "^4.6.0",
     "@ionic-native/native-geocoder": "^4.6.0",
     "@ionic-native/native-storage": "^4.6.0",
@@ -35,6 +36,7 @@
     "cordova-android": "7.0.0",
     "cordova-plugin-device": "^2.0.1",
     "cordova-plugin-dialogs": "^2.0.1",
+    "cordova-plugin-geolocation": "^4.0.1",
     "cordova-plugin-googlemaps": "^2.2.8",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^1.1.16",
@@ -69,7 +71,10 @@
       "cordova-plugin-nativegeocoder": {},
       "cordova-sqlite-storage": {},
       "cordova-plugin-x-toast": {},
-      "cordova-plugin-nativestorage": {}
+      "cordova-plugin-nativestorage": {},
+      "cordova-plugin-geolocation": {
+        "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
+      }
     },
     "platforms": [
       "android"

@@ -17,10 +17,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { NativeStorage }  from '@ionic-native/native-storage';
 import { SQLite }         from '@ionic-native/sqlite';
 import { HomePage } from '../pages/home/home';
-
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { BrMaskerModule } from 'brmasker-ionic-3';
 import { Toast } from '@ionic-native/toast';
+import { DataBaseProvider } from '../providers/database/database';
+import { GeolocationProvider } from '../providers/geolocation/geolocation';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,9 @@ import { Toast } from '@ionic-native/toast';
     SQLite,
     Toast,
     NativeGeocoder,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataBaseProvider,
+    GeolocationProvider
   ]
 })
 export class AppModule {}
