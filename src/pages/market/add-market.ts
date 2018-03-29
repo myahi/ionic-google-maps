@@ -6,6 +6,7 @@ import { LatLng } from '@ionic-native/google-maps';
 //import { NativeGeocoder, NativeGeocoderReverseResult} from '@ionic-native/native-geocoder';
 import { Toast } from '@ionic-native/toast';
 import { DataBaseProvider } from '../../providers/database/database';
+import { HomePage } from '../home/home';
 
 
 @Component({
@@ -13,25 +14,18 @@ import { DataBaseProvider } from '../../providers/database/database';
   templateUrl: 'add-market.html'
 })
 export class AddMarketPage {
-  market = { marketName:"", marketCategory:"", marketAddress:"",marketPhone:"",lat:0,lng:0};
+  market = { marketName:"", marketCategory:"", marketAddress:"",marketPhone:"",lat:42.346903,lng:-71.135101};
   private position :LatLng;
-  markets: string[] = [];
-  
-  //constructor(public navCtrl: NavController,public navParams: NavParams, public dataBaseProvider: DataBaseProvider,private nativeGeocoder: NativeGeocoder, private toast: Toast) {
-    constructor(public navCtrl: NavController,public navParams: NavParams, public dataBaseProvider: DataBaseProvider, private toast: Toast) {
+    constructor(public navCtrl: NavController,public navParams: NavParams, public dataBaseProvider: DataBaseProvider, private toast: Toast,private homePage:HomePage) {
     this.position = navParams.get("position");
   }
 
   addMarket(){
-    this.market.lat=this.position.lat;
-    this.market.lng=this.position.lng;
-    
-    alert(this.market);
     this.dataBaseProvider.addMarket(this.market).then(
       res => {
-        console.log(res);
         this.toast.show('Data saved', '5000', 'center').subscribe(
           toast => {
+            this.homePage.markets = res;
             this.navCtrl.popToRoot();
           }
         );

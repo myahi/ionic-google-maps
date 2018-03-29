@@ -14,46 +14,39 @@ import { MarketModel } from '../market/MarketModel';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  private markets:Array<MarketModel> =[];
+  public markets:Array<MarketModel>=[];
   constructor(public navCtrl: NavController, public platform: Platform,public dataBaseProvider: DataBaseProvider,public geoLocalisationProvide: GeolocationProvider) {
-  //  this.location = new LatLng(42.346903, -71.135101);
     platform.ready().then(() => {
       this.loadMap();
 		});
   }
   ionViewWillEnter() {
-  }
+      this.loadMap();
+    }
   loadMap() {
     // create a new map by passing HTMLElement
     let element: HTMLElement = document.getElementById('map');
-    this.geoLocalisationProvide.loadMap(GoogleMaps.create(element));
-    /**this.dataBaseProvider.getAllMarkets().then(
-      res => {
-        this.geoLocalisationProvide.putMarketsOnMap(res);
-      })
-    this.addEventListners();*/
+    let market = new MarketModel("Test","","","42.346903","-71.135101","");
+    this.markets.push(market);
+/**    this.dataBaseProvider.getAllMarkets().then((res) => {
+      if(res!=null && res.length >0) {
+        this.markets = res;
+      }
+      });*/
+    this.geoLocalisationProvide.loadMap(GoogleMaps.create(element),this.markets)
+    .then(()=>{this.addEventListener()});;
+    
 }
 
-  addEventListners(){
-    this.geoLocalisationProvide.map.on(GoogleMapsEvent.MAP_LONG_CLICK)
-    .subscribe((latLng) => {
-      this.navCtrl.push(AddMarketPage,{position:latLng[0]}); 
-      });
-  }
+private addEventListener(){
+  this.geoLocalisationProvide.map.on(GoogleMapsEvent.MAP_LONG_CLICK)
+  .subscribe((latLng) => {
+  this.navCtrl.push(AddMarketPage,{position:latLng[0]}); 
+});
+}
 
-  updateMarketOnMap(){
-    this.dataBaseProvider.getAllMarkets().then((markets)=>{
-      if (markets.keys.length != this.markets.keys.length){
-        this.geoLocalisationProvide.putMarketsOnMap(markets);      
-      }
-    });
-  }
-
-  addData(position:LatLng){
+addData(position:LatLng){
     this.navCtrl.push(AddMarketPage,{position:this.geoLocalisationProvide.getCurrentLocation()});
   }
-
-  
-  
 
 }

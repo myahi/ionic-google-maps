@@ -22,6 +22,7 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
 import { Toast } from '@ionic-native/toast';
 import { DataBaseProvider } from '../providers/database/database';
 import { GeolocationProvider } from '../providers/geolocation/geolocation';
+import { Geolocation } from '@ionic-native/geolocation';
 
 
 @NgModule({
@@ -48,14 +49,16 @@ import { GeolocationProvider } from '../providers/geolocation/geolocation';
     HomePage
   ],
   providers: [
+    SQLite,
+    DataBaseProvider,
     StatusBar,
     SplashScreen,
     NativeStorage,
-    SQLite,
+    Geolocation,
+    //{provide: SQLite, useClass: SQLiteMock},
     Toast,
     NativeGeocoder,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataBaseProvider,
     GeolocationProvider
   ]
 })

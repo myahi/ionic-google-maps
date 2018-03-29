@@ -2,10 +2,8 @@
         <ion-navbar>
           <ion-title>New market</ion-title>
         </ion-navbar>
-        </ion-header>
-        
+        </ion-header>        
         <ion-content padding>
-<<<<<<< HEAD
           <form (ngSubmit)="addMarket()">
             <ion-item>
               <ion-label stacked>Name</ion-label>
@@ -15,38 +13,19 @@
               <ion-label stacked>Category</ion-label>
               <ion-select [(ngModel)]="market.marketCategory" name="marketCategory" required="">
                 <ion-option value="supermarket" selected='true'>Supermarket</ion-option>
-=======
-          <form (ngSubmit)="saveMarket()">
-            <ion-item>
-              <ion-label stacked>Name</ion-label>
-              <ion-input type="text" [(ngModel)]="marketName" name="marketName"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label stacked>Category</ion-label>
-              <ion-select [(ngModel)]="data.type" name="categorieMovie" required="">
-                <ion-option value="supermarket" selected="1">Supermarket</ion-option>
->>>>>>> fist commit
                 <ion-option value="shop">Shop</ion-option>
               </ion-select>
             </ion-item>
             <ion-item>
               <ion-label stacked>Address</ion-label>
-<<<<<<< HEAD
               <ion-input type="text" [(ngModel)]="market.marketAddress" name="marketAddress"></ion-input>
-=======
-              <ion-input type="text" [(ngModel)]="marketAddress" name="marketAddress"></ion-input>
->>>>>>> fist commit
               <button type="button" ion-button item-right (tap)="retriveAddress()"> 
                   <ion-icon name="md-refresh"></ion-icon>
               </button>
             </ion-item>
             <ion-item>
                 <ion-label stacked>Phone</ion-label>
-<<<<<<< HEAD
                 <ion-input [(ngModel)]="market.marketPhone" type="text" name="phone" [brmasker]="{type: 'num',mask:'(0000) 00-00-00',len:15}"></ion-input>
-=======
-                <ion-input type="text" name="phone" placeholder="Phone" [brmasker]="{type: 'num',mask:'(0000) 00-00-00',len:15}"></ion-input>
->>>>>>> fist commit
             </ion-item>
           <button ion-button type="submit" block>Save Market</button>
          </form>
